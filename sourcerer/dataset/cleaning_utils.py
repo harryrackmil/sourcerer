@@ -39,11 +39,3 @@ def get_article_word_counts(articles_df, min_count=2):
     counts_df = counts_df.fillna(0)
     return counts_df
 
-def get_word_freqs(articles, min_word_count=2):
-
-    word_counts = get_domain_word_count(articles)
-    filtered_word_counts = filter_word_count(word_counts, min_word_count)
-
-    total_words = sum(filtered_word_counts.values())
-    normalized_word_freqs = {k:float(v)/total_words for k,v in filtered_word_counts.iteritems()}
-    return normalized_word_freqs

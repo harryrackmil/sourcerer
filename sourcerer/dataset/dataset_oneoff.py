@@ -6,8 +6,28 @@ from scipy.spatial.distance import pdist
 from scipy.spatial.distance import squareform
 import matplotlib.pyplot as plt
 
-article_df = read_articles(["nyt", "wire", "jacobin", "cnn", "wsj", "msnbc"], "./data/dev")
-count_df = get_article_word_counts(article_df)
+article_df = read_articles(
+    [
+        "nyt",
+        "wire",
+        "jacobin",
+        "cnn",
+        "wsj",
+        "msnbc",
+        "buzzfeed",
+        "nypost",
+        "dailymail",
+        "go",
+        "huffingtonpost",
+        "latimes",
+        "msn",
+        "nbcnews",
+        "theguardian",
+        "vice"
+    ],
+    "./data/dev"
+)
+count_df = get_article_word_counts(article_df, min_count=3)
 
 # aggregate
 agg_count_df = count_df.drop(labels=["_URL_"], axis=1)
